@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class YuanbenClient {
 
-    private YuanbenClient client;
+    private static YuanbenClient client;
     private String url;
     private String accessToken;
     private HttpUtil httpUtil;
@@ -44,8 +44,12 @@ public class YuanbenClient {
         this.httpUtil = new HttpUtil();
     }
 
-    public static YuanbenClient Init(String url, String accessToken) throws HttpException {
-        return new YuanbenClient(url, accessToken);
+    public static void Init(String url, String accessToken) throws HttpException {
+        client = new YuanbenClient(url, accessToken);
+    }
+
+    public static YuanbenClient getInstance() {
+        return client;
     }
 
     public List<ArticleSaveResp> saveArticles(List<ArticleReq> articles) throws Exception {
