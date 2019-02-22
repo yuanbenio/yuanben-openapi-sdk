@@ -24,7 +24,7 @@ import java.io.Serializable;
  * @description 发布文章：单篇文章信息
  */
 
-public class ArticleReq implements Serializable{
+public class ArticleReq implements Serializable {
     // 文章ID
     @JSONField(name = "client_id")
     private long clientID;
@@ -34,8 +34,34 @@ public class ArticleReq implements Serializable{
     private String content;
     // 文章是否对外开放。如果设置为true，则文章不对其他用户开放，默认false
     private boolean closed;
+    // 文章原本发布地址
+    @JSONField(name = "original_url")
+    private String originalURL;
+    // 文章原文发布时间抽
+    @JSONField(name = "original_publish_time")
+    private long originalPublishTime;
     // 授权协议
     private License license;
+
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public String getOriginalURL() {
+        return originalURL;
+    }
+
+    public void setOriginalURL(String originalURL) {
+        this.originalURL = originalURL;
+    }
+
+    public long getOriginalPublishTime() {
+        return originalPublishTime;
+    }
+
+    public void setOriginalPublishTime(long originalPublishTime) {
+        this.originalPublishTime = originalPublishTime;
+    }
 
     public long getClientID() {
         return clientID;

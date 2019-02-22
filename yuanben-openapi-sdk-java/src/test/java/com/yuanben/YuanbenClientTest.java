@@ -30,9 +30,8 @@ import java.util.List;
 
 public class YuanbenClientTest {
 
-    private YuanbenClient client = YuanbenClient.Init("http://openapi.staging.yuanben.site/v1/media", "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aS...");
-
     public YuanbenClientTest() throws HttpException {
+        YuanbenClient.Init("http://openapi.staging.yuanben.site/v1/media", "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aS...");
     }
 
     @Test
@@ -66,7 +65,7 @@ public class YuanbenClientTest {
         article2.setTitle("区块链原创保护和自助交易平台");
         list.add(article2);
 
-        List<ArticleSaveResp> articleSaveResps = client.saveArticles(list);
+        List<ArticleSaveResp> articleSaveResps = YuanbenClient.getInstance().saveArticles(list);
         System.out.println(JSON.toJSON(articleSaveResps));
 
     }
@@ -112,7 +111,7 @@ public class YuanbenClientTest {
         image1.setImage(base64String);
         list.add(image1);
 
-        ImageSaveResp resp = client.saveImages(list);
+        ImageSaveResp resp = YuanbenClient.getInstance().saveImages(list);
 
         assert resp.getStatus().getCode() == 200 : resp.getStatus().getMessage();
         System.out.println(JSON.toJSON(resp));
