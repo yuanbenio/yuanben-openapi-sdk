@@ -78,7 +78,7 @@ public class HttpUtil {
                 httpPost.addHeader(key, headers.get(key));
             }
         }
-        StringEntity entity = new StringEntity(jsonData, Charset.defaultCharset());
+        StringEntity entity = new StringEntity(jsonData, "UTF-8");
 
         httpPost.setEntity(entity);
         CloseableHttpResponse response = httpClient.execute(httpPost);
