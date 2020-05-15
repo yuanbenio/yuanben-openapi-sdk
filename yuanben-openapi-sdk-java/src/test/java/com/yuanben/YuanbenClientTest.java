@@ -31,7 +31,7 @@ import java.util.List;
 public class YuanbenClientTest {
 
     public YuanbenClientTest() throws HttpException {
-        YuanbenClient.Init("http://openapi.staging.yuanben.site/v1/media", "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aS...");
+        YuanbenClient.Init("https://openapi.staging.yuanben.site/v1/media", "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aS...");
     }
 
     @Test
