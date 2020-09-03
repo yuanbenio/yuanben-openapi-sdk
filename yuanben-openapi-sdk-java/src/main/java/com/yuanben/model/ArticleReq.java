@@ -42,6 +42,10 @@ public class ArticleReq implements Serializable {
     private long originalPublishTime;
     // 授权协议
     private License license;
+    // 频道名称
+    private String channel;
+    // 记者名称
+    private String writer;
 
     public boolean isClosed() {
         return closed;
@@ -101,5 +105,21 @@ public class ArticleReq implements Serializable {
 
     public void setLicense(License license) {
         this.license = license;
+    }
+
+    public String getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
     }
 }
